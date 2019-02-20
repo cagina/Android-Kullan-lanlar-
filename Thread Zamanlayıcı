@@ -1,0 +1,36 @@
+    Thread t;
+    Handler handler1;
+    
+    public void zamanlayıcı(){
+
+        t= new Thread(new Runnable() {
+            public void run() {
+
+
+                    handler1.postDelayed(new Runnable() {
+                        public void run() {
+
+                            // 11 saniye sonunda bir sefer çalışır
+                            handler1.removeCallbacks(this); 
+                            ...
+
+                        }
+
+                    }, 11000);
+
+            }
+
+        });
+        t.start();
+    }
+    
+    
+    
+    //Dışarıdaki bir methoddan durmak içim handler'ı 
+    
+     handler1.removeCallbacksAndMessages(null);
+     
+     
+     // Thread Durdurmak için
+     
+     t.interrupt();
