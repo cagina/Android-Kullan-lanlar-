@@ -1,0 +1,23 @@
+    private static String[] fastSplit(String string, char delimiter) {
+
+        int off = 0;
+        int next = 0;
+        ArrayList<String> list = new ArrayList<>();
+        while ((next = string.indexOf(delimiter, off)) != -1) {
+            list.add(string.substring(off, next));
+            off = next + 1;
+        }
+        // If no match was found, return this
+        if (off == 0)
+            return new String[] { string };
+
+        // Add remaining segment
+        list.add(string.substring(off, string.length()));
+
+        // Construct result
+        int resultSize = list.size();
+        while (resultSize > 0 && list.get(resultSize - 1).length() == 0)
+            resultSize--;
+        String[] result = new String[resultSize];
+        return list.subList(0, resultSize).toArray(result);
+    }
