@@ -1,0 +1,44 @@
+----------------------------------------------- AsyncTask ------------------------------------------------------------------
+ 
+ Main(){
+    new GetTaskDone().execute(); 
+ }
+
+protected class GetTaskDone extends AsyncTask<Void, Void, String> {
+        private ProgressDialog dialog;
+
+        public GetTaskDone() {
+
+            this.dialog = new ProgressDialog(FirstPage.this);
+            this.dialog.setMessage("...");
+            this.dialog.setCancelable(false);
+            if (!this.dialog.isShowing()) {
+                this.dialog.show();
+            }
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        protected String doInBackground(Void... params) {
+            ...
+            if(...)
+                return "error";
+            else
+                return "ok";
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            this.dialog.dismiss();
+            if(result.equals("ok"))
+                ...
+            else
+                ...
+
+
+        }
+     }
