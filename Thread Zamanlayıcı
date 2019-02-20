@@ -26,7 +26,7 @@
     
     
     
-    //Dışarıdaki bir methoddan durmak içim handler'ı 
+    //Dışarıdaki bir methoddan durdurmak içim handler'ı 
     
      handler1.removeCallbacksAndMessages(null);
      
