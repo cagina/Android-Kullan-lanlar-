@@ -1,0 +1,15 @@
+ public void spannablestring(String Gelen,String alti,TextView hangisi){
+       SpannableStringBuilder builder = new SpannableStringBuilder();
+        String black = Gelen;
+        SpannableString whiteSpannable= new SpannableString(black);
+        whiteSpannable.setSpan(new ForegroundColorSpan(Color.BLACK), 0, black.length(), 0);
+        builder.append(whiteSpannable);
+
+        String green = alti;
+        SpannableString blueSpannable = new SpannableString(green);
+        blueSpannable.setSpan(new ForegroundColorSpan(Color.GRAY), 0, green.length(), 0);
+        builder.append(blueSpannable);
+
+        hangisi.setText(builder, TextView.BufferType.SPANNABLE);
+
+    }
