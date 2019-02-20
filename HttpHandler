@@ -1,9 +1,12 @@
 
 ---------------------------- Login Kullanımı ---------------------------------------------------------
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
    public User loginuser(String username, String password, String lang){
 
         String url = "http:.../Login/"+username+"/"+password+"/"+lang;
-        System.out.print(url);
         HttpHandler sh = new HttpHandler();
         String jsonStr = sh.makeServiceCall(url);
         return jsonparse(jsonStr);
